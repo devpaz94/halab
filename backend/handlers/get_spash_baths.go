@@ -6,13 +6,14 @@ import (
 	"net/http"
 )
 
-func handleGETBaths(w http.ResponseWriter, r *http.Request) {
+// fetches a photo of a bath from the splash api
+func handleGETSplashBath(w http.ResponseWriter, r *http.Request) {
 
 	URL := "https://api.unsplash.com/photos/?client_id="
 
 	AccessKey := "af9387e4fa060d133ddc10e21cd1b42c0003bbffc1256ef15173b4074aabe54f"
 
-	resp, err := http.Get(URL + "/photos/random&client_id=" + AccessKey +)
+	resp, err := http.Get(URL + "/photos/random&client_id=" + AccessKey)
 	if err != nil {
 		// handle error
 	}
