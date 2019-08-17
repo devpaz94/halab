@@ -15,7 +15,7 @@ const (
 	port     = 5432
 	user     = "paz"
 	password = "password"
-	dbname   = "postgres"
+	dbname   = "halab"
 )
 
 func main() {

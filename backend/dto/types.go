@@ -1,7 +1,7 @@
 package dto
 
 type Bath struct {
-	ID   int
+	ID   string
 	Name string
 	Size string
 	URL  string

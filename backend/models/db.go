@@ -19,5 +19,4 @@ func InitDB(psqlInfo string) {
 	if err = db.Ping(); err != nil {
 		log.Panic(err)
 	}
-	defer db.Close()
 }

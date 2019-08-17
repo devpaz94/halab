@@ -17,9 +17,9 @@ func ReadBath(id int) (*dto.Bath, error) {
 
 func CreateBath(b *dto.Bath) error {
 	sqlStatement := `
-	INSERT INTO baths (id, name, size, URL)
+	INSERT INTO baths (bath_id, name, size, url)
 	VALUES ($1, $2, $3, $4)
-	RETURNING id`
+	RETURNING bath_id`
 	id := 0
 	err := db.QueryRow(sqlStatement, b.ID, b.Name, b.Size, b.URL).Scan(&id)
 	if err != nil {
