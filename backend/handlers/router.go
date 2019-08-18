@@ -7,4 +7,6 @@ import (
 func HandleRequests() {
 	http.HandleFunc("/spash_baths", handleGETSplashBath)
 	http.HandleFunc("/save_bath", handlePOSTSaveBath)
+	http.HandleFunc("/baths", handleGETSavedBaths)
+
 }

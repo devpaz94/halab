@@ -1,18 +1,25 @@
 package models
 
 import (
+	"fmt"
+
 	dto "github.com/halab/backend/dto"
 
 	_ "github.com/lib/pq"
 )
 
-func ReadBath(id int) (*dto.Bath, error) {
+func ReadBaths() (*[]dto.Bath, error) {
 	var b dto.Bath
-	row, err := db.Query(`SELECT id, name, url FROM baths WHERE id = $1`, id)
-	if row.Scan(&b.ID, &b.Name, &b.URL); err != nil {
-		return nil, err
+	var baths []dto.Bath
+	rows, err := db.Query(`SELECT bath_id, name, url FROM baths`)
+	if err != nil {
+		fmt.Println("error querying")
 	}
-	return &b, nil
+	for rows.Next() {
+		rows.Scan(&b.ID, &b.Name, &b.URL)
+		baths = append(baths, b)
+	}
+	return &baths, nil
 }
 
 func CreateBath(b *dto.Bath) error {
